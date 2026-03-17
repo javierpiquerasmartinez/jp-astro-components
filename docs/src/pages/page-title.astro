@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable, Sidebar } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -20,42 +20,63 @@ const props = [
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
-    <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="PageTitle">component</PageTitle>
-      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Heading principal de página con soporte para una palabra resaltada en color accent. Usa
-        <code style="color: var(--jp-color-accent); font-size: 0.9em;">clamp()</code> para ser responsive sin media queries.
-      </p>
-      <CodeBlock label="IMPORTAR" code={importCode} accent />
-    </section>
+    <div class="doc-layout">
+      <Sidebar />
+      <div class="doc-content">
+        <section id="hero" style="padding-top: 2rem;">
+          <PageTitle accent="PageTitle">component</PageTitle>
+          <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+            Heading principal de página con soporte para una palabra resaltada en color accent. Usa
+            <code style="color: var(--jp-color-accent); font-size: 0.9em;">clamp()</code> para ser responsive sin media queries.
+          </p>
+          <CodeBlock label="IMPORTAR" code={importCode} accent />
+        </section>
 
-    <section id="examples" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplos</h2>
+        <section id="examples" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplos</h2>
+          <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <DemoBlock code={`<PageTitle accent="Hola,">mundo</PageTitle>`}>
+              <PageTitle accent="Hola,">mundo</PageTitle>
+            </DemoBlock>
+            <DemoBlock code={`<PageTitle>jp-astro-components</PageTitle>`}>
+              <PageTitle>jp-astro-components</PageTitle>
+            </DemoBlock>
+            <DemoBlock code={`<PageTitle accent="Solo accent." />`}>
+              <PageTitle accent="Solo accent." />
+            </DemoBlock>
+          </div>
+        </section>
 
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-        <DemoBlock code={`<PageTitle accent="Hola,">mundo</PageTitle>`}>
-          <PageTitle accent="Hola,">mundo</PageTitle>
-        </DemoBlock>
+        <section id="usage" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
+          <PropsTable props={props} />
+        </section>
 
-        <DemoBlock code={`<PageTitle>jp-astro-components</PageTitle>`}>
-          <PageTitle>jp-astro-components</PageTitle>
-        </DemoBlock>
-
-        <DemoBlock code={`<PageTitle accent="Solo accent." />`}>
-          <PageTitle accent="Solo accent." />
-        </DemoBlock>
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+            ← Volver al inicio
+          </a>
+        </div>
       </div>
-    </section>
-
-    <section id="usage" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
-      <PropsTable props={props} />
-    </section>
-
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
-      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
-        ← Volver al inicio
-      </a>
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .doc-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .doc-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .doc-layout {
+      flex-direction: column;
+    }
+  }
+</style>

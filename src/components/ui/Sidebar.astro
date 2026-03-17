@@ -1,0 +1,126 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const groups = [
+  {
+    label: 'Navigation',
+    items: [{ label: 'Navbar', href: '/navbar' }],
+  },
+  {
+    label: 'Typography',
+    items: [{ label: 'PageTitle', href: '/page-title' }],
+  },
+  {
+    label: 'Layout',
+    items: [{ label: 'BaseLayout', href: '/base-layout' }],
+  },
+  {
+    label: 'UI',
+    items: [
+      { label: 'Button', href: '/button' },
+      { label: 'CodeBlock', href: '/code-block' },
+      { label: 'DemoBlock', href: '/demo-block' },
+      { label: 'ComponentCard', href: '/component-card' },
+      { label: 'PropsTable', href: '/props-table' },
+    ],
+  },
+];
+---
+
+<aside class="jp-sidebar">
+  <nav aria-label="Componentes">
+    {
+      groups.map((group) => (
+        <div class="jp-sidebar__group">
+          <p class="jp-sidebar__label">{group.label}</p>
+          <ul class="jp-sidebar__list" role="list">
+            {group.items.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={['jp-sidebar__link', { 'jp-sidebar__link--active': currentPath === item.href }]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </nav>
+</aside>
+
+<style>
+  .jp-sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 5rem;
+    align-self: flex-start;
+  }
+
+  .jp-sidebar__group {
+    margin-bottom: 1.5rem;
+  }
+
+  .jp-sidebar__label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--jp-text-faded, rgba(255, 255, 255, 0.4));
+    margin: 0 0 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .jp-sidebar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .jp-sidebar__link {
+    display: block;
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--jp-text-muted, rgba(255, 255, 255, 0.5));
+    text-decoration: none;
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .jp-sidebar__link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .jp-sidebar__link--active {
+    color: var(--jp-color-accent, #e8ff47);
+    background: rgba(232, 255, 71, 0.06);
+  }
+
+  .jp-sidebar__link--active:hover {
+    color: var(--jp-color-accent, #e8ff47);
+    background: rgba(232, 255, 71, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .jp-sidebar {
+      width: 100%;
+      position: static;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .jp-sidebar__group {
+      margin-bottom: 0;
+    }
+  }
+</style>

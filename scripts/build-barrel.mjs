@@ -18,6 +18,7 @@ export { default as CodeBlock } from '../src/components/ui/CodeBlock.astro';
 export { default as DemoBlock } from '../src/components/ui/DemoBlock.astro';
 export { default as ComponentCard } from '../src/components/ui/ComponentCard.astro';
 export { default as PropsTable } from '../src/components/ui/PropsTable.astro';
+export { default as Sidebar } from '../src/components/ui/Sidebar.astro';
 `
 );
 

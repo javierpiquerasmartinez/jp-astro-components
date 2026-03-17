@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock, PropsTable } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, PropsTable, Sidebar } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -39,39 +39,62 @@ const props = [
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
-    <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="Navbar">component</PageTitle>
-      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Barra de navegación fija con glassmorphism en scroll, hamburger menu en mobile y tracking de
-        sección activa via IntersectionObserver.
-      </p>
-      <CodeBlock label="IMPORTAR" code={importCode} accent />
-    </section>
+    <div class="doc-layout">
+      <Sidebar />
+      <div class="doc-content">
+        <section id="hero" style="padding-top: 2rem;">
+          <PageTitle accent="Navbar">component</PageTitle>
+          <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+            Barra de navegación fija con glassmorphism en scroll, hamburger menu en mobile y tracking
+            de sección activa via IntersectionObserver.
+          </p>
+          <CodeBlock label="IMPORTAR" code={importCode} accent />
+        </section>
 
-    <section id="features" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Features</h2>
-      <ul style="color: var(--jp-text-muted); display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0;">
-        <li>✦ Posición fija en la parte superior</li>
-        <li>✦ Glassmorphism al hacer scroll (backdrop-blur)</li>
-        <li>✦ Hamburger menu en mobile (&lt;768px)</li>
-        <li>✦ Active link tracking via IntersectionObserver</li>
-        <li>✦ Logo configurable con enlace personalizable</li>
-        <li>✦ Estilos scoped — sin dependencias CSS externas</li>
-      </ul>
-    </section>
+        <section id="features" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Features</h2>
+          <ul style="color: var(--jp-text-muted); display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0;">
+            <li>✦ Posición fija en la parte superior</li>
+            <li>✦ Glassmorphism al hacer scroll (backdrop-blur)</li>
+            <li>✦ Hamburger menu en mobile (&lt;768px)</li>
+            <li>✦ Active link tracking via IntersectionObserver</li>
+            <li>✦ Logo configurable con enlace personalizable</li>
+            <li>✦ Estilos scoped — sin dependencias CSS externas</li>
+          </ul>
+        </section>
 
-    <section id="usage" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Uso</h2>
-      <CodeBlock label="EJEMPLO" code={exampleCode} />
+        <section id="usage" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Uso</h2>
+          <CodeBlock label="EJEMPLO" code={exampleCode} />
+          <h3 style="font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Props</h3>
+          <PropsTable props={props} />
+        </section>
 
-      <h3 style="font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Props</h3>
-      <PropsTable props={props} />
-    </section>
-
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
-      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
-        ← Volver al inicio
-      </a>
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+            ← Volver al inicio
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .doc-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .doc-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .doc-layout {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -7,6 +7,7 @@ export { default as CodeBlock } from './components/ui/CodeBlock.astro';
 export { default as DemoBlock } from './components/ui/DemoBlock.astro';
 export { default as ComponentCard } from './components/ui/ComponentCard.astro';
 export { default as PropsTable } from './components/ui/PropsTable.astro';
+export { default as Sidebar } from './components/ui/Sidebar.astro';
 
 // Types
 export type { NavbarProps, NavItem } from './components/navigation/Navbar.types';

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable, Sidebar } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -33,41 +33,65 @@ const props = [
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
-    <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="PropsTable">component</PageTitle>
-      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Tabla de props estilizada para páginas de documentación. Recibe un array de
-        <code style="color: var(--jp-color-accent); font-size: 0.9em;">PropRow</code> y renderiza
-        nombre, tipo y valor por defecto de cada prop.
-      </p>
-      <CodeBlock label="IMPORTAR" code={importCode} accent />
-    </section>
+    <div class="doc-layout">
+      <Sidebar />
+      <div class="doc-content">
+        <section id="hero" style="padding-top: 2rem;">
+          <PageTitle accent="PropsTable">component</PageTitle>
+          <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+            Tabla de props estilizada para páginas de documentación. Recibe un array de
+            <code style="color: var(--jp-color-accent); font-size: 0.9em;">PropRow</code> y renderiza
+            nombre, tipo y valor por defecto de cada prop.
+          </p>
+          <CodeBlock label="IMPORTAR" code={importCode} accent />
+        </section>
 
-    <section id="example" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplo</h2>
-      <DemoBlock code={exampleCode}>
-        <div style="width: 100%;">
-          <PropsTable props={demoProps} />
+        <section id="example" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplo</h2>
+          <DemoBlock code={exampleCode}>
+            <div style="width: 100%;">
+              <PropsTable props={demoProps} />
+            </div>
+          </DemoBlock>
+        </section>
+
+        <section id="usage" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
+          <PropsTable props={props} />
+
+          <h3 style="font-size: 1rem; font-weight: 600; margin: 1.5rem 0 1rem; color: var(--jp-text-muted);">Tipo PropRow</h3>
+          <PropsTable props={[
+            { name: 'name', type: 'string', default: '— (requerido)' },
+            { name: 'type', type: 'string', default: '— (requerido)' },
+            { name: 'default', type: 'string', default: '— (requerido)' },
+          ]} />
+        </section>
+
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+            ← Volver al inicio
+          </a>
         </div>
-      </DemoBlock>
-    </section>
-
-    <section id="usage" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
-      <PropsTable props={props} />
-
-      <h3 style="font-size: 1rem; font-weight: 600; margin: 1.5rem 0 1rem; color: var(--jp-text-muted);">Tipo PropRow</h3>
-      <PropsTable props={[
-        { name: 'name', type: 'string', default: '— (requerido)' },
-        { name: 'type', type: 'string', default: '— (requerido)' },
-        { name: 'default', type: 'string', default: '— (requerido)' },
-      ]} />
-    </section>
-
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
-      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
-        ← Volver al inicio
-      </a>
+      </div>
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .doc-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .doc-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .doc-layout {
+      flex-direction: column;
+    }
+  }
+</style>

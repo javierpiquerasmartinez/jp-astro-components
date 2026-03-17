@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, Button, CodeBlock, DemoBlock, PropsTable } from 'jp-astro-components';
+import { Navbar, PageTitle, Button, CodeBlock, DemoBlock, PropsTable, Sidebar } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -30,56 +30,76 @@ const props = [
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
-    <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="Button">component</PageTitle>
-      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Botón con dos variantes: <strong style="color: white;">primary</strong> y <strong
-          style="color: white;">ghost</strong
-        >. Renderiza <code style="color: var(--jp-color-accent); font-size: 0.9em;">&lt;a&gt;</code> si tiene
-        <code style="color: var(--jp-color-accent); font-size: 0.9em;">href</code>, o <code
-          style="color: var(--jp-color-accent); font-size: 0.9em;">&lt;button&gt;</code> si no.
-      </p>
-      <CodeBlock label="IMPORTAR" code={importCode} accent />
-    </section>
+    <div class="doc-layout">
+      <Sidebar />
+      <div class="doc-content">
+        <section id="hero" style="padding-top: 2rem;">
+          <PageTitle accent="Button">component</PageTitle>
+          <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+            Botón con dos variantes: <strong style="color: white;">primary</strong> y <strong
+              style="color: white;">ghost</strong
+            >. Renderiza <code style="color: var(--jp-color-accent); font-size: 0.9em;">&lt;a&gt;</code> si tiene
+            <code style="color: var(--jp-color-accent); font-size: 0.9em;">href</code>, o <code
+              style="color: var(--jp-color-accent); font-size: 0.9em;">&lt;button&gt;</code> si no.
+          </p>
+          <CodeBlock label="IMPORTAR" code={importCode} accent />
+        </section>
 
-    <section id="variants" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
+        <section id="variants" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <DemoBlock code={`<Button href="#">Acción principal →</Button>`}>
+              <Button href="#">Acción principal →</Button>
+            </DemoBlock>
+            <DemoBlock code={`<Button href="#" variant="ghost">Acción secundaria</Button>`}>
+              <Button href="#" variant="ghost">Acción secundaria</Button>
+            </DemoBlock>
+            <DemoBlock
+              code={`<Button href="/navbar">Ir a Navbar →</Button>\n<Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>`}
+            >
+              <Button href="/navbar">Ir a Navbar →</Button>
+              <Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>
+            </DemoBlock>
+            <DemoBlock code={actionCode}>
+              <Button id="demo-btn">Haz click</Button>
+              <span id="demo-output" style="color: var(--jp-text-muted); font-size: 0.875rem;"></span>
+            </DemoBlock>
+          </div>
+        </section>
 
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <DemoBlock code={`<Button href="#">Acción principal →</Button>`}>
-          <Button href="#">Acción principal →</Button>
-        </DemoBlock>
+        <section id="usage" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
+          <PropsTable props={props} />
+        </section>
 
-        <DemoBlock code={`<Button href="#" variant="ghost">Acción secundaria</Button>`}>
-          <Button href="#" variant="ghost">Acción secundaria</Button>
-        </DemoBlock>
-
-        <DemoBlock
-          code={`<Button href="/navbar">Ir a Navbar →</Button>\n<Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>`}
-        >
-          <Button href="/navbar">Ir a Navbar →</Button>
-          <Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>
-        </DemoBlock>
-
-        <DemoBlock code={actionCode}>
-          <Button id="demo-btn">Haz click</Button>
-          <span id="demo-output" style="color: var(--jp-text-muted); font-size: 0.875rem;"></span>
-        </DemoBlock>
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+            ← Volver al inicio
+          </a>
+        </div>
       </div>
-    </section>
-
-    <section id="usage" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
-      <PropsTable props={props} />
-    </section>
-
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
-      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
-        ← Volver al inicio
-      </a>
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .doc-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .doc-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .doc-layout {
+      flex-direction: column;
+    }
+  }
+</style>
 
 <script>
   let count = 0;

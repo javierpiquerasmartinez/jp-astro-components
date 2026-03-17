@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable, Sidebar } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -35,48 +35,72 @@ const props = [
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
-    <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="CodeBlock">component</PageTitle>
-      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Bloque de código con etiqueta opcional. Pensado para mostrar snippets en páginas de
-        documentación. La prop <code style="color: var(--jp-color-accent); font-size: 0.9em;"
-          >accent</code
-        > usa el color de la marca para imports de una línea.
-      </p>
-      <CodeBlock label="IMPORTAR" code={importCode} accent />
-    </section>
+    <div class="doc-layout">
+      <Sidebar />
+      <div class="doc-content">
+        <section id="hero" style="padding-top: 2rem;">
+          <PageTitle accent="CodeBlock">component</PageTitle>
+          <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+            Bloque de código con etiqueta opcional. Pensado para mostrar snippets en páginas de
+            documentación. La prop <code style="color: var(--jp-color-accent); font-size: 0.9em;"
+              >accent</code
+            > usa el color de la marca para imports de una línea.
+          </p>
+          <CodeBlock label="IMPORTAR" code={importCode} accent />
+        </section>
 
-    <section id="variants" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
+        <section id="variants" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
 
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <DemoBlock code={exampleAccent}>
-          <CodeBlock
-            label="IMPORTAR"
-            code={`import { Navbar, Button } from 'jp-astro-components';`}
-            accent
-          />
-        </DemoBlock>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <DemoBlock code={exampleAccent}>
+              <CodeBlock
+                label="IMPORTAR"
+                code={`import { Navbar, Button } from 'jp-astro-components';`}
+                accent
+              />
+            </DemoBlock>
 
-        <DemoBlock code={exampleNoLabel}>
-          <CodeBlock code={`<Button href="/ruta">Texto</Button>`} />
-        </DemoBlock>
+            <DemoBlock code={exampleNoLabel}>
+              <CodeBlock code={`<Button href="/ruta">Texto</Button>`} />
+            </DemoBlock>
 
-        <DemoBlock code={exampleMultiline}>
-          <CodeBlock label="EJEMPLO" code={multilineSnippet} />
-        </DemoBlock>
+            <DemoBlock code={exampleMultiline}>
+              <CodeBlock label="EJEMPLO" code={multilineSnippet} />
+            </DemoBlock>
+          </div>
+        </section>
+
+        <section id="usage" style="padding-top: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
+          <PropsTable props={props} />
+        </section>
+
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+          <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+            ← Volver al inicio
+          </a>
+        </div>
       </div>
-    </section>
-
-    <section id="usage" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
-      <PropsTable props={props} />
-    </section>
-
-    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
-      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
-        ← Volver al inicio
-      </a>
     </div>
   </main>
 </BaseLayout>
+
+<style>
+  .doc-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .doc-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .doc-layout {
+      flex-direction: column;
+    }
+  }
+</style>

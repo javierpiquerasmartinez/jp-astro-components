@@ -16,7 +16,8 @@
       "jp-astro-components/CodeBlock": ["../src/components/ui/CodeBlock.astro"],
       "jp-astro-components/DemoBlock": ["../src/components/ui/DemoBlock.astro"],
       "jp-astro-components/ComponentCard": ["../src/components/ui/ComponentCard.astro"],
-      "jp-astro-components/PropsTable": ["../src/components/ui/PropsTable.astro"]
+      "jp-astro-components/PropsTable": ["../src/components/ui/PropsTable.astro"],
+      "jp-astro-components/Sidebar": ["../src/components/ui/Sidebar.astro"]
     }
   },
   "include": ["src/env.d.ts"],
