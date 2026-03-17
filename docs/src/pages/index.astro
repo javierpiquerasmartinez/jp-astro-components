@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio">
+  <style>
+    .hero {
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #7c3aed;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+    }
+
+    .card h2 {
+      color: #7c3aed;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+
+  <div class="hero">
+    <h1>jp-astro-components</h1>
+    <p>Librería de componentes Astro reutilizables para tus proyectos.</p>
+  </div>
+
+  <div class="cards">
+    <a href="/typography" class="card">
+      <h2>Typography</h2>
+      <p>Componentes de texto: headings, párrafos y más.</p>
+    </a>
+    <a href="/layout" class="card">
+      <h2>Layout</h2>
+      <p>Componentes de estructura: sections, articles y más.</p>
+    </a>
+  </div>
+</BaseLayout>

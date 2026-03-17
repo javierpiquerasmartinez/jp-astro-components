@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "baseUrl": ".",
+    "paths": {
+      "jp-astro-components/Heading": ["../src/components/typography/Heading.astro"],
+      "jp-astro-components/Section": ["../src/components/layout/Section.astro"],
+      "jp-astro-components/Article": ["../src/components/content/Article.astro"]
+    }
+  },
+  "include": ["src/env.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

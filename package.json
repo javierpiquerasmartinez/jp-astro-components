@@ -1,0 +1,57 @@
+{
+  "name": "jp-astro-components",
+  "version": "0.1.0",
+  "description": "A reusable Astro component library for typography, layout, and content elements.",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts"
+    },
+    "./Heading": "./src/components/typography/Heading.astro",
+    "./Section": "./src/components/layout/Section.astro",
+    "./Article": "./src/components/content/Article.astro"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "README.md"
+  ],
+  "keywords": [
+    "astro",
+    "component-library",
+    "astro-components",
+    "ui",
+    "typography",
+    "layout"
+  ],
+  "peerDependencies": {
+    "astro": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "astro": "^4.16.19",
+    "eslint": "^8.57.1",
+    "eslint-plugin-astro": "^0.34.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.13.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^1.6.1"
+  },
+  "scripts": {
+    "dev": "astro dev --root docs",
+    "build:docs": "astro build --root docs",
+    "build:lib": "tsup",
+    "build": "npm run build:lib && npm run build:docs",
+    "lint": "eslint . --ext .ts,.astro",
+    "lint:fix": "eslint . --ext .ts,.astro --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run lint && npm run test && npm run build:lib"
+  },
+  "license": "MIT"
+}

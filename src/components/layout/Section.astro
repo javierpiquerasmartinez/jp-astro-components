@@ -1,0 +1,15 @@
+---
+import type { SectionProps } from './Section.types';
+
+type Props = SectionProps;
+
+const { label, class: className, ...rest } = Astro.props;
+---
+
+<section
+  class:list={['jp-section', className]}
+  aria-label={label}
+  {...rest}
+>
+  <slot />
+</section>

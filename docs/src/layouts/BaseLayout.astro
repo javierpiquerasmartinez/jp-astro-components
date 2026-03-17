@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | jp-astro-components</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+        color: #1a1a1a;
+        background: #f9f9f9;
+      }
+
+      nav {
+        background: #7c3aed;
+        padding: 1rem 2rem;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      nav .brand {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-right: auto;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="brand">jp-astro-components</a>
+      <a href="/">Inicio</a>
+      <a href="/typography">Typography</a>
+      <a href="/layout">Layout</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
