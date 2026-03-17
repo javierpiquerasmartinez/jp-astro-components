@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, PropsTable } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -20,6 +20,12 @@ import { BaseLayout } from 'jp-astro-components';
     <h1>Hola mundo</h1>
   </main>
 </BaseLayout>`;
+
+const props = [
+  { name: 'title', type: 'string', default: '— (requerido)' },
+  { name: 'description', type: 'string', default: '—' },
+  { name: 'lang', type: 'string', default: '"es"' },
+];
 ---
 
 <BaseLayout title="BaseLayout">
@@ -54,34 +60,7 @@ import { BaseLayout } from 'jp-astro-components';
       <CodeBlock label="EJEMPLO" code={exampleCode} />
 
       <h3 style="font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Props</h3>
-      <table
-        style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
-      >
-        <thead>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Prop</th>
-            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Tipo</th>
-            <th style="text-align: left; padding: 0.5rem 0; color: white;">Default</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">title</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">— (requerido)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">description</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">—</td>
-          </tr>
-          <tr>
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">lang</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">"es"</td>
-          </tr>
-        </tbody>
-      </table>
+      <PropsTable props={props} />
     </section>
 
     <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">

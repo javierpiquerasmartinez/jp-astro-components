@@ -17,13 +17,14 @@ export { default as Button } from '../src/components/ui/Button.astro';
 export { default as CodeBlock } from '../src/components/ui/CodeBlock.astro';
 export { default as DemoBlock } from '../src/components/ui/DemoBlock.astro';
 export { default as ComponentCard } from '../src/components/ui/ComponentCard.astro';
+export { default as PropsTable } from '../src/components/ui/PropsTable.astro';
 `
 );
 
 writeFileSync(
   'dist/index.d.ts',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
-export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps, CodeBlockProps, DemoBlockProps, ComponentCardProps } from './types.js';
+export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps, CodeBlockProps, DemoBlockProps, ComponentCardProps, PropsTableProps, PropRow } from './types.js';
 `
 );
 

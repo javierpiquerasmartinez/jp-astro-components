@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock, DemoBlock } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, DemoBlock, PropsTable } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -9,6 +9,11 @@ const links = [
 ];
 
 const importCode = `import { PageTitle } from 'jp-astro-components';`;
+
+const props = [
+  { name: 'accent', type: 'string', default: '—' },
+  { name: 'slot', type: 'string', default: '—' },
+];
 ---
 
 <BaseLayout title="PageTitle">
@@ -44,29 +49,7 @@ const importCode = `import { PageTitle } from 'jp-astro-components';`;
 
     <section id="usage" style="padding-top: 2rem;">
       <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
-      <table
-        style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
-      >
-        <thead>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Prop</th>
-            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Tipo</th>
-            <th style="text-align: left; padding: 0.5rem 0; color: white;">Default</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">accent</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">—</td>
-          </tr>
-          <tr>
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">slot</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">—</td>
-          </tr>
-        </tbody>
-      </table>
+      <PropsTable props={props} />
     </section>
 
     <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">

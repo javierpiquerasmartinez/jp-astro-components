@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, PropsTable } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -26,6 +26,13 @@ const links = [
   logoHref="/"
   sticky={true}
 />`;
+
+const props = [
+  { name: 'links', type: 'NavItem[]', default: '— (requerido)' },
+  { name: 'logo', type: 'string', default: '"jp"' },
+  { name: 'logoHref', type: 'string', default: '"/"' },
+  { name: 'sticky', type: 'boolean', default: 'true' },
+];
 ---
 
 <BaseLayout title="Navbar">
@@ -58,39 +65,7 @@ const links = [
       <CodeBlock label="EJEMPLO" code={exampleCode} />
 
       <h3 style="font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Props</h3>
-      <table
-        style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
-      >
-        <thead>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Prop</th>
-            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Tipo</th>
-            <th style="text-align: left; padding: 0.5rem 0; color: white;">Default</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">links</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">NavItem[]</td>
-            <td style="padding: 0.5rem 0;">— (requerido)</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">logo</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">"jp"</td>
-          </tr>
-          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">logoHref</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">"/"</td>
-          </tr>
-          <tr>
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">sticky</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">boolean</td>
-            <td style="padding: 0.5rem 0;">true</td>
-          </tr>
-        </tbody>
-      </table>
+      <PropsTable props={props} />
     </section>
 
     <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">

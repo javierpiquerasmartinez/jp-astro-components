@@ -16,7 +16,8 @@
     "./Button": "./src/components/ui/Button.astro",
     "./CodeBlock": "./src/components/ui/CodeBlock.astro",
     "./DemoBlock": "./src/components/ui/DemoBlock.astro",
-    "./ComponentCard": "./src/components/ui/ComponentCard.astro"
+    "./ComponentCard": "./src/components/ui/ComponentCard.astro",
+    "./PropsTable": "./src/components/ui/PropsTable.astro"
   },
   "files": [
     "src/",

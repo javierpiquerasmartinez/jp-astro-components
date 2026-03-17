@@ -6,6 +6,7 @@ export { default as Button } from './components/ui/Button.astro';
 export { default as CodeBlock } from './components/ui/CodeBlock.astro';
 export { default as DemoBlock } from './components/ui/DemoBlock.astro';
 export { default as ComponentCard } from './components/ui/ComponentCard.astro';
+export { default as PropsTable } from './components/ui/PropsTable.astro';
 
 // Types
 export type { NavbarProps, NavItem } from './components/navigation/Navbar.types';
@@ -15,3 +16,4 @@ export type { ButtonProps } from './components/ui/Button.types';
 export type { CodeBlockProps } from './components/ui/CodeBlock.types';
 export type { DemoBlockProps } from './components/ui/DemoBlock.types';
 export type { ComponentCardProps } from './components/ui/ComponentCard.types';
+export type { PropsTableProps, PropRow } from './components/ui/PropsTable.types';

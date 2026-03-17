@@ -1,0 +1,72 @@
+---
+import type { PropsTableProps } from './PropsTable.types';
+
+type Props = PropsTableProps;
+
+const { props } = Astro.props;
+---
+
+<table class="jp-props-table">
+  <thead>
+    <tr class="jp-props-table__header-row">
+      <th class="jp-props-table__th">Prop</th>
+      <th class="jp-props-table__th">Tipo</th>
+      <th class="jp-props-table__th jp-props-table__th--last">Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      props.map((row, i) => (
+        <tr class:list={['jp-props-table__row', { 'jp-props-table__row--last': i === props.length - 1 }]}>
+          <td class="jp-props-table__td jp-props-table__td--name">{row.name}</td>
+          <td class="jp-props-table__td">{row.type}</td>
+          <td class="jp-props-table__td jp-props-table__td--last">{row.default}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style>
+  .jp-props-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    color: var(--jp-text-muted, rgba(255, 255, 255, 0.5));
+  }
+
+  .jp-props-table__header-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .jp-props-table__th {
+    text-align: left;
+    padding: 0.5rem 1rem 0.5rem 0;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .jp-props-table__th--last {
+    padding-right: 0;
+  }
+
+  .jp-props-table__row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .jp-props-table__row--last {
+    border-bottom: none;
+  }
+
+  .jp-props-table__td {
+    padding: 0.5rem 1rem 0.5rem 0;
+  }
+
+  .jp-props-table__td--name {
+    color: var(--jp-color-accent, #e8ff47);
+  }
+
+  .jp-props-table__td--last {
+    padding-right: 0;
+  }
+</style>

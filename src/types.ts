@@ -7,3 +7,4 @@ export type { ButtonProps } from './components/ui/Button.types';
 export type { CodeBlockProps } from './components/ui/CodeBlock.types';
 export type { DemoBlockProps } from './components/ui/DemoBlock.types';
 export type { ComponentCardProps } from './components/ui/ComponentCard.types';
+export type { PropsTableProps, PropRow } from './components/ui/PropsTable.types';
