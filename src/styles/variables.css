@@ -1,0 +1,9 @@
+:root {
+  --jp-color-bg: #0a0a0a;
+  --jp-color-accent: #e8ff47;
+  --jp-color-accent-dim: rgba(232, 255, 71, 0.4);
+  --jp-color-accent-glow: rgba(232, 255, 71, 0.6);
+  --jp-text-muted: rgba(255, 255, 255, 0.5);
+  --jp-text-faded: rgba(255, 255, 255, 0.4);
+  --jp-ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}

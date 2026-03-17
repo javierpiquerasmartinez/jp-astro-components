@@ -9,9 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "jp-astro-components": ["../src/index.ts"],
-      "jp-astro-components/Heading": ["../src/components/typography/Heading.astro"],
-      "jp-astro-components/Section": ["../src/components/layout/Section.astro"],
-      "jp-astro-components/Article": ["../src/components/content/Article.astro"]
+      "jp-astro-components/Navbar": ["../src/components/navigation/Navbar.astro"]
     }
   },
   "include": ["src/env.d.ts"],

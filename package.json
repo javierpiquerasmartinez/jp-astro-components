@@ -10,9 +10,7 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./Heading": "./src/components/typography/Heading.astro",
-    "./Section": "./src/components/layout/Section.astro",
-    "./Article": "./src/components/content/Article.astro"
+    "./Navbar": "./src/components/navigation/Navbar.astro"
   },
   "files": [
     "src/",

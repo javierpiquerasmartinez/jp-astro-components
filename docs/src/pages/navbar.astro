@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Navbar } from 'jp-astro-components';
+
+const links = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Features', href: '#features' },
+  { label: 'Uso', href: '#usage' },
+];
+---
+
+<BaseLayout title="Navbar">
+  <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
+
+  <main>
+    <section id="hero" style="padding-top: 2rem;">
+      <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">
+        <span style="color: var(--jp-color-accent);">Navbar</span> component
+      </h1>
+      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+        Barra de navegación fija con glassmorphism en scroll, hamburger menu en mobile y tracking de
+        sección activa via IntersectionObserver.
+      </p>
+
+      <div
+        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;"
+      >
+        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
+          IMPORTAR
+        </p>
+        <pre
+          style="margin: 0; font-size: 0.9rem; color: var(--jp-color-accent);"><code>import &#123; Navbar &#125; from 'jp-astro-components';</code></pre>
+      </div>
+    </section>
+
+    <section id="features" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Features</h2>
+      <ul style="color: var(--jp-text-muted); display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0;">
+        <li>✦ Posición fija en la parte superior</li>
+        <li>✦ Glassmorphism al hacer scroll (backdrop-blur)</li>
+        <li>✦ Hamburger menu en mobile (&lt;768px)</li>
+        <li>✦ Active link tracking via IntersectionObserver</li>
+        <li>✦ Logo configurable con enlace personalizable</li>
+        <li>✦ Estilos scoped — sin dependencias CSS externas</li>
+      </ul>
+    </section>
+
+    <section id="usage" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Uso</h2>
+
+      <div
+        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;"
+      >
+        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
+          EJEMPLO
+        </p>
+        <pre style="margin: 0; font-size: 0.875rem; line-height: 1.7; color: #e2e8f0; overflow-x: auto;"><code
+>---
+import &#123; Navbar &#125; from 'jp-astro-components';
+
+const links = [
+  &#123; label: 'Inicio', href: '#hero' &#125;,
+  &#123; label: 'Proyectos', href: '#projects' &#125;,
+  &#123; label: 'Contacto', href: '#contact' &#125;,
+];
+---
+
+&lt;Navbar
+  links=&#123;links&#125;
+  logo="Mi sitio"
+  logoHref="/"
+  sticky=&#123;true&#125;
+/&gt;</code></pre>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Props</h3>
+      <table
+        style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
+      >
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Prop</th>
+            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Tipo</th>
+            <th style="text-align: left; padding: 0.5rem 0; color: white;">Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">links</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">NavItem[]</td>
+            <td style="padding: 0.5rem 0;">— (requerido)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">logo</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">"jp"</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">logoHref</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">"/"</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">sticky</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">boolean</td>
+            <td style="padding: 0.5rem 0;">true</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+        ← Volver al inicio
+      </a>
+    </div>
+  </main>
+</BaseLayout>

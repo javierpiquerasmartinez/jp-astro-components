@@ -15,9 +15,7 @@ mkdirSync('dist', { recursive: true });
 writeFileSync(
   'dist/index.js',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
-export { default as Heading } from '../src/components/typography/Heading.astro';
-export { default as Section } from '../src/components/layout/Section.astro';
-export { default as Article } from '../src/components/content/Article.astro';
+export { default as Navbar } from '../src/components/navigation/Navbar.astro';
 `
 );
 
@@ -25,7 +23,7 @@ export { default as Article } from '../src/components/content/Article.astro';
 writeFileSync(
   'dist/index.d.ts',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
-export type { HeadingProps, SectionProps, ArticleProps } from './types.js';
+export type { NavbarProps, NavItem } from './types.js';
 `
 );
 
