@@ -1,12 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, Button } from 'jp-astro-components';
+import { Navbar, PageTitle, Button, CodeBlock } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
   { label: 'Variantes', href: '#variants' },
   { label: 'Uso', href: '#usage' },
 ];
+
+const importCode = `import { Button } from 'jp-astro-components';`;
+
+const actionCode = `<Button id="demo-btn">Haz click</Button>
+
+<script>
+  document.getElementById('demo-btn').addEventListener('click', () => {
+    // tu lógica aquí
+  });
+<\/script>`;
 ---
 
 <BaseLayout title="Button">
@@ -22,16 +32,7 @@ const links = [
         <code style="color: var(--jp-color-accent); font-size: 0.9em;">href</code>, o <code
           style="color: var(--jp-color-accent); font-size: 0.9em;">&lt;button&gt;</code> si no.
       </p>
-
-      <div
-        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;"
-      >
-        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
-          IMPORTAR
-        </p>
-        <pre
-          style="margin: 0; font-size: 0.9rem; color: var(--jp-color-accent);"><code>import &#123; Button &#125; from 'jp-astro-components';</code></pre>
-      </div>
+      <CodeBlock label="IMPORTAR" code={importCode} accent />
     </section>
 
     <section id="variants" style="padding-top: 2rem;">
@@ -45,10 +46,8 @@ const links = [
           <div style="padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
             <Button href="#">Acción principal →</Button>
           </div>
-          <div
-            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
-          >
-            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;Button href="#"&gt;Acción principal →&lt;/Button&gt;</code></pre>
+          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
+            <CodeBlock code={`<Button href="#">Acción principal →</Button>`} />
           </div>
         </div>
 
@@ -59,10 +58,8 @@ const links = [
           <div style="padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
             <Button href="#" variant="ghost">Acción secundaria</Button>
           </div>
-          <div
-            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
-          >
-            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;Button href="#" variant="ghost"&gt;Acción secundaria&lt;/Button&gt;</code></pre>
+          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
+            <CodeBlock code={`<Button href="#" variant="ghost">Acción secundaria</Button>`} />
           </div>
         </div>
 
@@ -74,11 +71,10 @@ const links = [
             <Button href="/navbar">Ir a Navbar →</Button>
             <Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>
           </div>
-          <div
-            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
-          >
-            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;Button href="/navbar"&gt;Ir a Navbar →&lt;/Button&gt;
-&lt;Button href="https://astro.build" variant="ghost" external&gt;astro.build ↗&lt;/Button&gt;</code></pre>
+          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
+            <CodeBlock
+              code={`<Button href="/navbar">Ir a Navbar →</Button>\n<Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>`}
+            />
           </div>
         </div>
 
@@ -90,16 +86,8 @@ const links = [
             <Button id="demo-btn">Haz click</Button>
             <span id="demo-output" style="color: var(--jp-text-muted); font-size: 0.875rem;"></span>
           </div>
-          <div
-            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
-          >
-            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;Button id="demo-btn"&gt;Haz click&lt;/Button&gt;
-
-&lt;script&gt;
-  document.getElementById('demo-btn').addEventListener('click', () =&gt; &#123;
-    // tu lógica aquí
-  &#125;);
-&lt;/script&gt;</code></pre>
+          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
+            <CodeBlock code={actionCode} />
           </div>
         </div>
       </div>

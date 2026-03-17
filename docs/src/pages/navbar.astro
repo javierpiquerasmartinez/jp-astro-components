@@ -1,12 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
   { label: 'Features', href: '#features' },
   { label: 'Uso', href: '#usage' },
 ];
+
+const importCode = `import { Navbar } from 'jp-astro-components';`;
+
+const exampleCode = `---
+import { Navbar } from 'jp-astro-components';
+
+const links = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Proyectos', href: '#projects' },
+  { label: 'Contacto', href: '#contact' },
+];
+---
+
+<Navbar
+  links={links}
+  logo="Mi sitio"
+  logoHref="/"
+  sticky={true}
+/>`;
 ---
 
 <BaseLayout title="Navbar">
@@ -19,16 +38,7 @@ const links = [
         Barra de navegación fija con glassmorphism en scroll, hamburger menu en mobile y tracking de
         sección activa via IntersectionObserver.
       </p>
-
-      <div
-        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;"
-      >
-        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
-          IMPORTAR
-        </p>
-        <pre
-          style="margin: 0; font-size: 0.9rem; color: var(--jp-color-accent);"><code>import &#123; Navbar &#125; from 'jp-astro-components';</code></pre>
-      </div>
+      <CodeBlock label="IMPORTAR" code={importCode} accent />
     </section>
 
     <section id="features" style="padding-top: 2rem;">
@@ -45,33 +55,9 @@ const links = [
 
     <section id="usage" style="padding-top: 2rem;">
       <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Uso</h2>
+      <CodeBlock label="EJEMPLO" code={exampleCode} />
 
-      <div
-        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem;"
-      >
-        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
-          EJEMPLO
-        </p>
-        <pre style="margin: 0; font-size: 0.875rem; line-height: 1.7; color: #e2e8f0; overflow-x: auto;"><code
->---
-import &#123; Navbar &#125; from 'jp-astro-components';
-
-const links = [
-  &#123; label: 'Inicio', href: '#hero' &#125;,
-  &#123; label: 'Proyectos', href: '#projects' &#125;,
-  &#123; label: 'Contacto', href: '#contact' &#125;,
-];
----
-
-&lt;Navbar
-  links=&#123;links&#125;
-  logo="Mi sitio"
-  logoHref="/"
-  sticky=&#123;true&#125;
-/&gt;</code></pre>
-      </div>
-
-      <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Props</h3>
+      <h3 style="font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem;">Props</h3>
       <table
         style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
       >

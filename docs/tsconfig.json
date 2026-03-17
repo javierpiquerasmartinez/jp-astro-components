@@ -12,7 +12,8 @@
       "jp-astro-components/Navbar": ["../src/components/navigation/Navbar.astro"],
       "jp-astro-components/PageTitle": ["../src/components/typography/PageTitle.astro"],
       "jp-astro-components/BaseLayout": ["../src/components/layout/BaseLayout.astro"],
-      "jp-astro-components/Button": ["../src/components/ui/Button.astro"]
+      "jp-astro-components/Button": ["../src/components/ui/Button.astro"],
+      "jp-astro-components/CodeBlock": ["../src/components/ui/CodeBlock.astro"]
     }
   },
   "include": ["src/env.d.ts"],

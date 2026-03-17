@@ -13,7 +13,8 @@
     "./Navbar": "./src/components/navigation/Navbar.astro",
     "./PageTitle": "./src/components/typography/PageTitle.astro",
     "./BaseLayout": "./src/components/layout/BaseLayout.astro",
-    "./Button": "./src/components/ui/Button.astro"
+    "./Button": "./src/components/ui/Button.astro",
+    "./CodeBlock": "./src/components/ui/CodeBlock.astro"
   },
   "files": [
     "src/",

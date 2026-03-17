@@ -1,0 +1,44 @@
+---
+import type { CodeBlockProps } from './CodeBlock.types';
+
+type Props = CodeBlockProps;
+
+const { code, label, accent = false } = Astro.props;
+---
+
+<div class="jp-code-block">
+  {label && <p class="jp-code-block__label">{label}</p>}
+  <pre class:list={['jp-code-block__pre', { 'jp-code-block__pre--accent': accent }]}><code>{code}</code></pre>
+</div>
+
+<style>
+  .jp-code-block {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .jp-code-block__label {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    color: var(--jp-text-muted, rgba(255, 255, 255, 0.5));
+    letter-spacing: 0.05em;
+  }
+
+  .jp-code-block__pre {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: pre;
+  }
+
+  .jp-code-block__pre--accent {
+    color: var(--jp-color-accent, #e8ff47);
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+</style>

@@ -4,63 +4,86 @@ import { Navbar, PageTitle, CodeBlock } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
-  { label: 'Ejemplos', href: '#examples' },
+  { label: 'Variantes', href: '#variants' },
   { label: 'Uso', href: '#usage' },
 ];
 
-const importCode = `import { PageTitle } from 'jp-astro-components';`;
+const importCode = `import { CodeBlock } from 'jp-astro-components';`;
+
+const exampleAccent = `<CodeBlock label="IMPORTAR" code={importCode} accent />`;
+
+const exampleNoLabel = `<CodeBlock code={snippet} />`;
+
+const exampleMultiline = `<CodeBlock label="EJEMPLO" code={snippet} />`;
+
+const multilineSnippet = `---
+import { Navbar } from 'jp-astro-components';
+
+const links = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Proyectos', href: '#projects' },
+];
 ---
 
-<BaseLayout title="PageTitle">
+<Navbar links={links} logo="Mi sitio" />`;
+---
+
+<BaseLayout title="CodeBlock">
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
     <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="PageTitle">component</PageTitle>
+      <PageTitle accent="CodeBlock">component</PageTitle>
       <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Heading principal de página con soporte para una palabra resaltada en color accent. Usa
-        <code style="color: var(--jp-color-accent); font-size: 0.9em;">clamp()</code> para ser responsive sin media queries.
+        Bloque de código con etiqueta opcional. Pensado para mostrar snippets en páginas de
+        documentación. La prop <code style="color: var(--jp-color-accent); font-size: 0.9em;"
+          >accent</code
+        > usa el color de la marca para imports de una línea.
       </p>
       <CodeBlock label="IMPORTAR" code={importCode} accent />
     </section>
 
-    <section id="examples" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplos</h2>
+    <section id="variants" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
 
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
         <!-- Con accent -->
         <div
           style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
         >
-          <div style="padding: 2rem 2rem 1.5rem;">
-            <PageTitle accent="Hola,">mundo</PageTitle>
+          <div style="padding: 1.5rem;">
+            <CodeBlock
+              label="IMPORTAR"
+              code={`import { Navbar, Button } from 'jp-astro-components';`}
+              accent
+            />
           </div>
           <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<PageTitle accent="Hola,">mundo</PageTitle>`} />
+            <CodeBlock code={exampleAccent} />
           </div>
         </div>
 
-        <!-- Sin accent -->
+        <!-- Sin label -->
         <div
           style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
         >
-          <div style="padding: 2rem 2rem 1.5rem;">
-            <PageTitle>jp-astro-components</PageTitle>
+          <div style="padding: 1.5rem;">
+            <CodeBlock code={`<Button href="/ruta">Texto</Button>`} />
           </div>
           <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<PageTitle>jp-astro-components</PageTitle>`} />
+            <CodeBlock code={exampleNoLabel} />
           </div>
         </div>
 
-        <!-- Solo accent -->
+        <!-- Multi-línea con label -->
         <div
           style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
         >
-          <div style="padding: 2rem 2rem 1.5rem;">
-            <PageTitle accent="Solo accent." />
+          <div style="padding: 1.5rem;">
+            <CodeBlock label="EJEMPLO" code={multilineSnippet} />
           </div>
           <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<PageTitle accent="Solo accent." />`} />
+            <CodeBlock code={exampleMultiline} />
           </div>
         </div>
       </div>
@@ -80,14 +103,19 @@ const importCode = `import { PageTitle } from 'jp-astro-components';`;
         </thead>
         <tbody>
           <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">accent</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">code</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">— (requerido)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">label</td>
             <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
             <td style="padding: 0.5rem 0;">—</td>
           </tr>
           <tr>
-            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">slot</td>
-            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
-            <td style="padding: 0.5rem 0;">—</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">accent</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">boolean</td>
+            <td style="padding: 0.5rem 0;">false</td>
           </tr>
         </tbody>
       </table>

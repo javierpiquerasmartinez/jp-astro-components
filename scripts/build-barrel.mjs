@@ -7,7 +7,6 @@ import { writeFileSync, mkdirSync } from 'fs';
 
 mkdirSync('dist', { recursive: true });
 
-// JS barrel — apunta a los .astro files via ruta relativa
 writeFileSync(
   'dist/index.js',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
@@ -15,14 +14,14 @@ export { default as Navbar } from '../src/components/navigation/Navbar.astro';
 export { default as PageTitle } from '../src/components/typography/PageTitle.astro';
 export { default as BaseLayout } from '../src/components/layout/BaseLayout.astro';
 export { default as Button } from '../src/components/ui/Button.astro';
+export { default as CodeBlock } from '../src/components/ui/CodeBlock.astro';
 `
 );
 
-// DTS barrel — re-exporta los tipos generados por tsup en dist/types.d.ts
 writeFileSync(
   'dist/index.d.ts',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
-export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps } from './types.js';
+export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps, CodeBlockProps } from './types.js';
 `
 );
 
