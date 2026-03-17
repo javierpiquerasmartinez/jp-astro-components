@@ -82,19 +82,24 @@ const links = [
           </div>
         </div>
 
-        <!-- Como button -->
+        <!-- Con acción via id -->
         <div
           style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
         >
-          <div style="padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-            <Button>Sin href → &lt;button&gt;</Button>
-            <Button variant="ghost">Ghost sin href</Button>
+          <div style="padding: 2rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <Button id="demo-btn">Haz click</Button>
+            <span id="demo-output" style="color: var(--jp-text-muted); font-size: 0.875rem;"></span>
           </div>
           <div
             style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
           >
-            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;Button&gt;Sin href → renderiza &lt;button&gt;&lt;/Button&gt;
-&lt;Button variant="ghost"&gt;Ghost sin href&lt;/Button&gt;</code></pre>
+            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;Button id="demo-btn"&gt;Haz click&lt;/Button&gt;
+
+&lt;script&gt;
+  document.getElementById('demo-btn').addEventListener('click', () =&gt; &#123;
+    // tu lógica aquí
+  &#125;);
+&lt;/script&gt;</code></pre>
           </div>
         </div>
       </div>
@@ -123,10 +128,15 @@ const links = [
             <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
             <td style="padding: 0.5rem 0;">— (renderiza &lt;button&gt;)</td>
           </tr>
-          <tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
             <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">external</td>
             <td style="padding: 0.5rem 1rem 0.5rem 0;">boolean</td>
             <td style="padding: 0.5rem 0;">false</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">...rest</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">HTMLButtonAttributes | HTMLAnchorAttributes</td>
+            <td style="padding: 0.5rem 0;">—</td>
           </tr>
         </tbody>
       </table>
@@ -139,3 +149,13 @@ const links = [
     </div>
   </main>
 </BaseLayout>
+
+<script>
+  let count = 0;
+  const btn = document.getElementById('demo-btn');
+  const output = document.getElementById('demo-output');
+  btn?.addEventListener('click', () => {
+    count++;
+    if (output) output.textContent = `clicked ${count} ${count === 1 ? 'vez' : 'veces'}`;
+  });
+</script>

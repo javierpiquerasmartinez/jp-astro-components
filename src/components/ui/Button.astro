@@ -1,9 +1,10 @@
 ---
 import type { ButtonProps } from './Button.types';
 
-type Props = ButtonProps;
+type Props = ButtonProps &
+  (astroHTML.JSX.ButtonHTMLAttributes | astroHTML.JSX.AnchorHTMLAttributes);
 
-const { variant = 'primary', href, external = false } = Astro.props;
+const { variant = 'primary', href, external = false, ...rest } = Astro.props;
 
 const externalAttrs = external
   ? { target: '_blank', rel: 'noopener noreferrer' }
@@ -12,11 +13,11 @@ const externalAttrs = external
 
 {
   href ? (
-    <a href={href} class:list={['jp-button', `jp-button--${variant}`]} {...externalAttrs}>
+    <a href={href} class:list={['jp-button', `jp-button--${variant}`]} {...externalAttrs} {...rest}>
       <slot />
     </a>
   ) : (
-    <button type="button" class:list={['jp-button', `jp-button--${variant}`]}>
+    <button type="button" class:list={['jp-button', `jp-button--${variant}`]} {...rest}>
       <slot />
     </button>
   )
