@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: ['src/index.ts'],
   format: ['esm'],
-  dts: { only: true }, // Solo genera .d.ts, no JS (los .astro se exponen como source)
+  dts: true, // Genera dist/index.js (vacío, solo tipos) + dist/index.d.ts
   clean: true,
   external: ['astro'],
 });
