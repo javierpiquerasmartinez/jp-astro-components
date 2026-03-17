@@ -45,7 +45,7 @@
   "scripts": {
     "dev": "astro dev --root docs",
     "build:docs": "astro build --root docs",
-    "build:lib": "tsup",
+    "build:lib": "tsup && node scripts/build-barrel.mjs",
     "build": "npm run build:lib && npm run build:docs",
     "lint": "eslint . --ext .ts,.astro",
     "lint:fix": "eslint . --ext .ts,.astro --fix",
