@@ -1,0 +1,39 @@
+---
+import type { DemoBlockProps } from './DemoBlock.types';
+import CodeBlock from './CodeBlock.astro';
+
+type Props = DemoBlockProps;
+
+const { code, accent = false, label } = Astro.props;
+---
+
+<div class="jp-demo-block">
+  <div class="jp-demo-block__preview">
+    <slot />
+  </div>
+  <div class="jp-demo-block__code">
+    <CodeBlock {code} {accent} {label} />
+  </div>
+</div>
+
+<style>
+  .jp-demo-block {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .jp-demo-block__preview {
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .jp-demo-block__code {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.2);
+  }
+</style>

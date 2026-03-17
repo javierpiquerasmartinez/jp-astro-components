@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock } from 'jp-astro-components';
+import { Navbar, PageTitle, CodeBlock, DemoBlock } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -28,41 +28,17 @@ const importCode = `import { PageTitle } from 'jp-astro-components';`;
       <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplos</h2>
 
       <div style="display: flex; flex-direction: column; gap: 2rem;">
-        <!-- Con accent -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
-        >
-          <div style="padding: 2rem 2rem 1.5rem;">
-            <PageTitle accent="Hola,">mundo</PageTitle>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<PageTitle accent="Hola,">mundo</PageTitle>`} />
-          </div>
-        </div>
+        <DemoBlock code={`<PageTitle accent="Hola,">mundo</PageTitle>`}>
+          <PageTitle accent="Hola,">mundo</PageTitle>
+        </DemoBlock>
 
-        <!-- Sin accent -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
-        >
-          <div style="padding: 2rem 2rem 1.5rem;">
-            <PageTitle>jp-astro-components</PageTitle>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<PageTitle>jp-astro-components</PageTitle>`} />
-          </div>
-        </div>
+        <DemoBlock code={`<PageTitle>jp-astro-components</PageTitle>`}>
+          <PageTitle>jp-astro-components</PageTitle>
+        </DemoBlock>
 
-        <!-- Solo accent -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
-        >
-          <div style="padding: 2rem 2rem 1.5rem;">
-            <PageTitle accent="Solo accent." />
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<PageTitle accent="Solo accent." />`} />
-          </div>
-        </div>
+        <DemoBlock code={`<PageTitle accent="Solo accent." />`}>
+          <PageTitle accent="Solo accent." />
+        </DemoBlock>
       </div>
     </section>
 

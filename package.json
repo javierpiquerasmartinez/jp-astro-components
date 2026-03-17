@@ -14,7 +14,9 @@
     "./PageTitle": "./src/components/typography/PageTitle.astro",
     "./BaseLayout": "./src/components/layout/BaseLayout.astro",
     "./Button": "./src/components/ui/Button.astro",
-    "./CodeBlock": "./src/components/ui/CodeBlock.astro"
+    "./CodeBlock": "./src/components/ui/CodeBlock.astro",
+    "./DemoBlock": "./src/components/ui/DemoBlock.astro",
+    "./ComponentCard": "./src/components/ui/ComponentCard.astro"
   },
   "files": [
     "src/",

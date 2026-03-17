@@ -1,0 +1,55 @@
+---
+import type { ComponentCardProps } from './ComponentCard.types';
+
+type Props = ComponentCardProps;
+
+const { href, category, title, description } = Astro.props;
+---
+
+<a href={href} class="jp-component-card">
+  <p class="jp-component-card__category">{category}</p>
+  <h3 class="jp-component-card__title">{title}</h3>
+  <p class="jp-component-card__description">{description}</p>
+</a>
+
+<style>
+  .jp-component-card {
+    display: block;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition:
+      border-color 0.2s,
+      background-color 0.2s;
+  }
+
+  .jp-component-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .jp-component-card__category {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--jp-color-accent, #e8ff47);
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+
+  .jp-component-card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: #ffffff;
+  }
+
+  .jp-component-card__description {
+    color: var(--jp-text-muted, rgba(255, 255, 255, 0.5));
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>

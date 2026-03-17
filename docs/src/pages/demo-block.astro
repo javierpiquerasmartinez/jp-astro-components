@@ -1,65 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, CodeBlock, DemoBlock } from 'jp-astro-components';
+import { Navbar, PageTitle, Button, CodeBlock, DemoBlock } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
-  { label: 'Variantes', href: '#variants' },
+  { label: 'Ejemplo', href: '#example' },
   { label: 'Uso', href: '#usage' },
 ];
 
-const importCode = `import { CodeBlock } from 'jp-astro-components';`;
-const exampleAccent = `<CodeBlock label="IMPORTAR" code={importCode} accent />`;
-const exampleNoLabel = `<CodeBlock code={snippet} />`;
-const exampleMultiline = `<CodeBlock label="EJEMPLO" code={snippet} />`;
+const importCode = `import { DemoBlock } from 'jp-astro-components';`;
 
-const multilineSnippet = `---
-import { Navbar } from 'jp-astro-components';
-
-const links = [
-  { label: 'Inicio', href: '#hero' },
-  { label: 'Proyectos', href: '#projects' },
-];
+const exampleCode = `<DemoBlock code="<Button href=\\"#\\">Acción →</Button>">
+  <Button href="#">Acción →</Button>
+</DemoBlock>`;
 ---
 
-<Navbar links={links} logo="Mi sitio" />`;
----
-
-<BaseLayout title="CodeBlock">
+<BaseLayout title="DemoBlock">
   <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
 
   <main>
     <section id="hero" style="padding-top: 2rem;">
-      <PageTitle accent="CodeBlock">component</PageTitle>
+      <PageTitle accent="DemoBlock">component</PageTitle>
       <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
-        Bloque de código con etiqueta opcional. Pensado para mostrar snippets en páginas de
-        documentación. La prop <code style="color: var(--jp-color-accent); font-size: 0.9em;"
-          >accent</code
-        > usa el color de la marca para imports de una línea.
+        Wrapper para páginas de documentación. Muestra un preview del componente arriba y el código
+        de uso abajo. El slot es la demo en vivo; la prop <code
+          style="color: var(--jp-color-accent); font-size: 0.9em;">code</code
+        > es el string que se pasa a <code style="color: var(--jp-color-accent); font-size: 0.9em;"
+          >CodeBlock</code
+        >.
       </p>
       <CodeBlock label="IMPORTAR" code={importCode} accent />
     </section>
 
-    <section id="variants" style="padding-top: 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
-
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <DemoBlock code={exampleAccent}>
-          <CodeBlock
-            label="IMPORTAR"
-            code={`import { Navbar, Button } from 'jp-astro-components';`}
-            accent
-          />
+    <section id="example" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplo</h2>
+      <DemoBlock code={exampleCode}>
+        <DemoBlock code={`<Button href="#">Acción →</Button>`}>
+          <Button href="#">Acción →</Button>
         </DemoBlock>
-
-        <DemoBlock code={exampleNoLabel}>
-          <CodeBlock code={`<Button href="/ruta">Texto</Button>`} />
-        </DemoBlock>
-
-        <DemoBlock code={exampleMultiline}>
-          <CodeBlock label="EJEMPLO" code={multilineSnippet} />
-        </DemoBlock>
-      </div>
+      </DemoBlock>
     </section>
 
     <section id="usage" style="padding-top: 2rem;">

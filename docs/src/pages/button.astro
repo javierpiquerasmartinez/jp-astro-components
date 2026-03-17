@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, Button, CodeBlock } from 'jp-astro-components';
+import { Navbar, PageTitle, Button, CodeBlock, DemoBlock } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -39,57 +39,25 @@ const actionCode = `<Button id="demo-btn">Haz click</Button>
       <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Variantes</h2>
 
       <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <!-- Primary -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
-        >
-          <div style="padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-            <Button href="#">Acción principal →</Button>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<Button href="#">Acción principal →</Button>`} />
-          </div>
-        </div>
+        <DemoBlock code={`<Button href="#">Acción principal →</Button>`}>
+          <Button href="#">Acción principal →</Button>
+        </DemoBlock>
 
-        <!-- Ghost -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
-        >
-          <div style="padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-            <Button href="#" variant="ghost">Acción secundaria</Button>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={`<Button href="#" variant="ghost">Acción secundaria</Button>`} />
-          </div>
-        </div>
+        <DemoBlock code={`<Button href="#" variant="ghost">Acción secundaria</Button>`}>
+          <Button href="#" variant="ghost">Acción secundaria</Button>
+        </DemoBlock>
 
-        <!-- Ambas + external -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
+        <DemoBlock
+          code={`<Button href="/navbar">Ir a Navbar →</Button>\n<Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>`}
         >
-          <div style="padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-            <Button href="/navbar">Ir a Navbar →</Button>
-            <Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock
-              code={`<Button href="/navbar">Ir a Navbar →</Button>\n<Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>`}
-            />
-          </div>
-        </div>
+          <Button href="/navbar">Ir a Navbar →</Button>
+          <Button href="https://astro.build" variant="ghost" external>astro.build ↗</Button>
+        </DemoBlock>
 
-        <!-- Con acción via id -->
-        <div
-          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
-        >
-          <div style="padding: 2rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-            <Button id="demo-btn">Haz click</Button>
-            <span id="demo-output" style="color: var(--jp-text-muted); font-size: 0.875rem;"></span>
-          </div>
-          <div style="border-top: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);">
-            <CodeBlock code={actionCode} />
-          </div>
-        </div>
+        <DemoBlock code={actionCode}>
+          <Button id="demo-btn">Haz click</Button>
+          <span id="demo-output" style="color: var(--jp-text-muted); font-size: 0.875rem;"></span>
+        </DemoBlock>
       </div>
     </section>
 

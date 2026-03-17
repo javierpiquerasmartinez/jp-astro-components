@@ -15,13 +15,15 @@ export { default as PageTitle } from '../src/components/typography/PageTitle.ast
 export { default as BaseLayout } from '../src/components/layout/BaseLayout.astro';
 export { default as Button } from '../src/components/ui/Button.astro';
 export { default as CodeBlock } from '../src/components/ui/CodeBlock.astro';
+export { default as DemoBlock } from '../src/components/ui/DemoBlock.astro';
+export { default as ComponentCard } from '../src/components/ui/ComponentCard.astro';
 `
 );
 
 writeFileSync(
   'dist/index.d.ts',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
-export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps, CodeBlockProps } from './types.js';
+export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps, CodeBlockProps, DemoBlockProps, ComponentCardProps } from './types.js';
 `
 );
 

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle, Button } from 'jp-astro-components';
+import { Navbar, PageTitle, Button, ComponentCard } from 'jp-astro-components';
 
 const navLinks = [{ label: 'Componentes', href: '#components' }];
 ---
@@ -25,7 +25,9 @@ const navLinks = [{ label: 'Componentes', href: '#components' }];
 
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <Button href="/navbar">Ver componentes →</Button>
-        <Button href="https://www.npmjs.com/package/jp-astro-components" variant="ghost" external>npm package</Button>
+        <Button href="https://www.npmjs.com/package/jp-astro-components" variant="ghost" external>
+          npm package
+        </Button>
       </div>
     </section>
 
@@ -39,76 +41,48 @@ const navLinks = [{ label: 'Componentes', href: '#components' }];
       <div
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;"
       >
-        <a
+        <ComponentCard
           href="/navbar"
-          style="display: block; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, background-color 0.2s;"
-        >
-          <p
-            style="font-size: 0.7rem; letter-spacing: 0.12em; color: var(--jp-color-accent); text-transform: uppercase; margin-bottom: 0.75rem;"
-          >
-            Navigation
-          </p>
-          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Navbar</h3>
-          <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
-            Barra de navegación fija con glassmorphism, hamburger menu y active link tracking.
-          </p>
-        </a>
-        <a
+          category="Navigation"
+          title="Navbar"
+          description="Barra de navegación fija con glassmorphism, hamburger menu y active link tracking."
+        />
+        <ComponentCard
           href="/page-title"
-          style="display: block; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, background-color 0.2s;"
-        >
-          <p
-            style="font-size: 0.7rem; letter-spacing: 0.12em; color: var(--jp-color-accent); text-transform: uppercase; margin-bottom: 0.75rem;"
-          >
-            Typography
-          </p>
-          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">PageTitle</h3>
-          <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
-            Heading principal con palabra accent resaltada. Responsive via clamp().
-          </p>
-        </a>
-        <a
+          category="Typography"
+          title="PageTitle"
+          description="Heading principal con palabra accent resaltada. Responsive via clamp()."
+        />
+        <ComponentCard
           href="/base-layout"
-          style="display: block; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, background-color 0.2s;"
-        >
-          <p
-            style="font-size: 0.7rem; letter-spacing: 0.12em; color: var(--jp-color-accent); text-transform: uppercase; margin-bottom: 0.75rem;"
-          >
-            Layout
-          </p>
-          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">BaseLayout</h3>
-          <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
-            Shell HTML con Geist, CSS variables, reset y animaciones incluidas.
-          </p>
-        </a>
-        <a
+          category="Layout"
+          title="BaseLayout"
+          description="Shell HTML con Geist, CSS variables, reset y animaciones incluidas."
+        />
+        <ComponentCard
           href="/code-block"
-          style="display: block; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, background-color 0.2s;"
-        >
-          <p
-            style="font-size: 0.7rem; letter-spacing: 0.12em; color: var(--jp-color-accent); text-transform: uppercase; margin-bottom: 0.75rem;"
-          >
-            UI
-          </p>
-          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">CodeBlock</h3>
-          <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
-            Bloque de código con etiqueta y variante accent para imports.
-          </p>
-        </a>
-        <a
+          category="UI"
+          title="CodeBlock"
+          description="Bloque de código con etiqueta y variante accent para imports."
+        />
+        <ComponentCard
           href="/button"
-          style="display: block; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, background-color 0.2s;"
-        >
-          <p
-            style="font-size: 0.7rem; letter-spacing: 0.12em; color: var(--jp-color-accent); text-transform: uppercase; margin-bottom: 0.75rem;"
-          >
-            UI
-          </p>
-          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Button</h3>
-          <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
-            Botón primary y ghost. Renderiza &lt;a&gt; o &lt;button&gt; según el contexto.
-          </p>
-        </a>
+          category="UI"
+          title="Button"
+          description="Botón primary y ghost. Renderiza <a> o <button> según el contexto."
+        />
+        <ComponentCard
+          href="/demo-block"
+          category="UI"
+          title="DemoBlock"
+          description="Wrapper de preview + código para páginas de documentación."
+        />
+        <ComponentCard
+          href="/component-card"
+          category="UI"
+          title="ComponentCard"
+          description="Tarjeta enlazable para listar componentes en un índice."
+        />
       </div>
     </section>
   </main>
