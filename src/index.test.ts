@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
 
-// Los componentes se importan via sub-paths ('jp-astro-components/Heading', etc.)
-// Este test verifica que el barrel de tipos se importa sin errores
+// Verifica que el barrel de tipos (src/types.ts) se importa sin errores
+// Los componentes .astro no se testean aquí (Vitest no los parsea)
 describe('Library types barrel', () => {
   it('should import without throwing', async () => {
-    await expect(import('./index')).resolves.not.toThrow();
+    await expect(import('./types')).resolves.toBeDefined();
   });
 });

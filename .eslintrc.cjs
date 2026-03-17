@@ -29,7 +29,9 @@ module.exports = {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
       },
-      rules: {},
+      rules: {
+        'no-undef': 'off', // TypeScript maneja los globals; ESLint no entiende tipos TS en .astro
+      },
     },
     {
       files: ['.eslintrc.cjs'],
@@ -38,5 +40,5 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ['dist/', 'node_modules/', '.astro/'],
+  ignorePatterns: ['dist/', 'node_modules/', '.astro/', 'docs/'],
 };
