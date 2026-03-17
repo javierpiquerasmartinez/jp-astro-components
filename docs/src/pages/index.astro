@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar, PageTitle } from 'jp-astro-components';
+import { Navbar, PageTitle, Button } from 'jp-astro-components';
 
 const navLinks = [{ label: 'Componentes', href: '#components' }];
 ---
@@ -24,18 +24,8 @@ const navLinks = [{ label: 'Componentes', href: '#components' }];
       </p>
 
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a
-          href="/navbar"
-          style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--jp-color-accent); color: #0a0a0a; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; transition: opacity 0.2s;"
-        >
-          Ver componentes →
-        </a>
-        <a
-          href="https://www.npmjs.com/package/jp-astro-components"
-          style="display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; transition: border-color 0.2s, color 0.2s;"
-        >
-          npm package
-        </a>
+        <Button href="/navbar">Ver componentes →</Button>
+        <Button href="https://www.npmjs.com/package/jp-astro-components" variant="ghost" external>npm package</Button>
       </div>
     </section>
 
@@ -89,6 +79,20 @@ const navLinks = [{ label: 'Componentes', href: '#components' }];
           <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">BaseLayout</h3>
           <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
             Shell HTML con Geist, CSS variables, reset y animaciones incluidas.
+          </p>
+        </a>
+        <a
+          href="/button"
+          style="display: block; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s, background-color 0.2s;"
+        >
+          <p
+            style="font-size: 0.7rem; letter-spacing: 0.12em; color: var(--jp-color-accent); text-transform: uppercase; margin-bottom: 0.75rem;"
+          >
+            UI
+          </p>
+          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Button</h3>
+          <p style="color: var(--jp-text-muted); font-size: 0.875rem; line-height: 1.5;">
+            Botón primary y ghost. Renderiza &lt;a&gt; o &lt;button&gt; según el contexto.
           </p>
         </a>
       </div>

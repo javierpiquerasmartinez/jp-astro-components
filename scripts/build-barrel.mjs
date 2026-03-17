@@ -14,6 +14,7 @@ writeFileSync(
 export { default as Navbar } from '../src/components/navigation/Navbar.astro';
 export { default as PageTitle } from '../src/components/typography/PageTitle.astro';
 export { default as BaseLayout } from '../src/components/layout/BaseLayout.astro';
+export { default as Button } from '../src/components/ui/Button.astro';
 `
 );
 
@@ -21,7 +22,7 @@ export { default as BaseLayout } from '../src/components/layout/BaseLayout.astro
 writeFileSync(
   'dist/index.d.ts',
   `// Auto-generated — do not edit. Run "npm run build:lib" to regenerate.
-export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps } from './types.js';
+export type { NavbarProps, NavItem, PageTitleProps, BaseLayoutProps, ButtonProps } from './types.js';
 `
 );
 
