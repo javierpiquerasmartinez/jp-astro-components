@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Navbar, PageTitle } from 'jp-astro-components';
+
+const links = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Qué incluye', href: '#includes' },
+  { label: 'Uso', href: '#usage' },
+];
+---
+
+<BaseLayout title="BaseLayout">
+  <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
+
+  <main>
+    <section id="hero" style="padding-top: 2rem;">
+      <PageTitle accent="BaseLayout">component</PageTitle>
+      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+        Shell HTML completo con Geist font, CSS variables del sistema de diseño, estilos globales y
+        animaciones. Úsalo como base para cualquier página.
+      </p>
+
+      <div
+        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;"
+      >
+        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
+          IMPORTAR
+        </p>
+        <pre
+          style="margin: 0; font-size: 0.9rem; color: var(--jp-color-accent);"><code>import &#123; BaseLayout &#125; from 'jp-astro-components';</code></pre>
+      </div>
+    </section>
+
+    <section id="includes" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Qué incluye</h2>
+      <ul style="color: var(--jp-text-muted); display: flex; flex-direction: column; gap: 0.75rem; list-style: none; padding: 0; margin-bottom: 2rem;">
+        <li>✦ <code style="color: rgba(255,255,255,0.7);">&lt;!doctype html&gt;</code> + meta charset y viewport</li>
+        <li>✦ Geist font cargada desde Google Fonts</li>
+        <li>✦ CSS variables: <code style="color: var(--jp-color-accent);">--jp-color-bg</code>, <code style="color: var(--jp-color-accent);">--jp-color-accent</code>, <code style="color: var(--jp-color-accent);">--jp-text-muted</code>…</li>
+        <li>✦ Reset de box-sizing y scroll suave (respeta <code style="color: rgba(255,255,255,0.7);">prefers-reduced-motion</code>)</li>
+        <li>✦ Body: fondo oscuro, Geist, antialiasing</li>
+        <li>✦ Keyframes: <code style="color: rgba(255,255,255,0.7);">fade-in</code>, <code style="color: rgba(255,255,255,0.7);">fade-up</code>, <code style="color: rgba(255,255,255,0.7);">slide-from-top</code>, <code style="color: rgba(255,255,255,0.7);">slide-from-bottom</code></li>
+        <li>✦ Utilidad <code style="color: rgba(255,255,255,0.7);">.sr-only</code></li>
+        <li>✦ <code style="color: rgba(255,255,255,0.7);">&lt;slot /&gt;</code> para el contenido de la página</li>
+      </ul>
+    </section>
+
+    <section id="usage" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Uso</h2>
+
+      <div
+        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;"
+      >
+        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
+          EJEMPLO
+        </p>
+        <pre style="margin: 0; font-size: 0.875rem; line-height: 1.7; color: #e2e8f0; overflow-x: auto;"><code
+>---
+import &#123; BaseLayout &#125; from 'jp-astro-components';
+---
+
+&lt;BaseLayout title="Mi página" description="Descripción opcional" lang="es"&gt;
+  &lt;!-- Todo el contenido va aquí --&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Hola mundo&lt;/h1&gt;
+  &lt;/main&gt;
+&lt;/BaseLayout&gt;</code></pre>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Props</h3>
+      <table
+        style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
+      >
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Prop</th>
+            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Tipo</th>
+            <th style="text-align: left; padding: 0.5rem 0; color: white;">Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">title</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">— (requerido)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">description</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">—</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">lang</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">"es"</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+        ← Volver al inicio
+      </a>
+    </div>
+  </main>
+</BaseLayout>

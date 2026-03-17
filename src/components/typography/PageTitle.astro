@@ -1,0 +1,26 @@
+---
+import type { PageTitleProps } from './PageTitle.types';
+
+type Props = PageTitleProps;
+
+const { accent } = Astro.props;
+---
+
+<h1 class="jp-page-title">
+  {accent && <span class="jp-page-title__accent">{accent}</span>}
+  <slot />
+</h1>
+
+<style>
+  .jp-page-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 1rem;
+  }
+
+  .jp-page-title__accent {
+    color: var(--jp-color-accent, #e8ff47);
+  }
+</style>

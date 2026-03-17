@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar } from 'jp-astro-components';
+import { Navbar, PageTitle } from 'jp-astro-components';
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -14,9 +14,7 @@ const links = [
 
   <main>
     <section id="hero" style="padding-top: 2rem;">
-      <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">
-        <span style="color: var(--jp-color-accent);">Navbar</span> component
-      </h1>
+      <PageTitle accent="Navbar">component</PageTitle>
       <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
         Barra de navegación fija con glassmorphism en scroll, hamburger menu en mobile y tracking de
         sección activa via IntersectionObserver.

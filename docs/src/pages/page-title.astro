@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Navbar, PageTitle } from 'jp-astro-components';
+
+const links = [
+  { label: 'Inicio', href: '#hero' },
+  { label: 'Ejemplos', href: '#examples' },
+  { label: 'Uso', href: '#usage' },
+];
+---
+
+<BaseLayout title="PageTitle">
+  <Navbar links={links} logo="jp-astro" logoHref="/" sticky={true} />
+
+  <main>
+    <section id="hero" style="padding-top: 2rem;">
+      <PageTitle accent="PageTitle">component</PageTitle>
+      <p style="color: var(--jp-text-muted); max-width: 600px; margin-bottom: 2rem;">
+        Heading principal de página con soporte para una palabra resaltada en color accent. Usa
+        <code style="color: var(--jp-color-accent); font-size: 0.9em;">clamp()</code> para ser responsive sin media queries.
+      </p>
+
+      <div
+        style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;"
+      >
+        <p style="color: var(--jp-text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
+          IMPORTAR
+        </p>
+        <pre
+          style="margin: 0; font-size: 0.9rem; color: var(--jp-color-accent);"><code>import &#123; PageTitle &#125; from 'jp-astro-components';</code></pre>
+      </div>
+    </section>
+
+    <section id="examples" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Ejemplos</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <!-- Con accent -->
+        <div
+          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
+        >
+          <div style="padding: 2rem 2rem 1.5rem;">
+            <PageTitle accent="Hola,">mundo</PageTitle>
+          </div>
+          <div
+            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
+          >
+            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;PageTitle accent="Hola,"&gt;mundo&lt;/PageTitle&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Sin accent -->
+        <div
+          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
+        >
+          <div style="padding: 2rem 2rem 1.5rem;">
+            <PageTitle>jp-astro-components</PageTitle>
+          </div>
+          <div
+            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
+          >
+            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;PageTitle&gt;jp-astro-components&lt;/PageTitle&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Solo accent -->
+        <div
+          style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden;"
+        >
+          <div style="padding: 2rem 2rem 1.5rem;">
+            <PageTitle accent="Solo accent." />
+          </div>
+          <div
+            style="border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 1.5rem; background: rgba(0,0,0,0.2);"
+          >
+            <pre style="margin: 0; font-size: 0.8rem; color: var(--jp-text-muted);"><code>&lt;PageTitle accent="Solo accent." /&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="usage" style="padding-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">Props</h2>
+      <table
+        style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: var(--jp-text-muted);"
+      >
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Prop</th>
+            <th style="text-align: left; padding: 0.5rem 1rem 0.5rem 0; color: white;">Tipo</th>
+            <th style="text-align: left; padding: 0.5rem 0; color: white;">Default</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">accent</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">—</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem 1rem 0.5rem 0; color: var(--jp-color-accent);">slot</td>
+            <td style="padding: 0.5rem 1rem 0.5rem 0;">string</td>
+            <td style="padding: 0.5rem 0;">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+      <a href="/" style="color: var(--jp-text-muted); text-decoration: none; font-size: 0.875rem;">
+        ← Volver al inicio
+      </a>
+    </div>
+  </main>
+</BaseLayout>
