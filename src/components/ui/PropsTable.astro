@@ -6,6 +6,7 @@ type Props = PropsTableProps;
 const { props } = Astro.props;
 ---
 
+<div class="jp-props-table__wrapper">
 <table class="jp-props-table">
   <thead>
     <tr class="jp-props-table__header-row">
@@ -26,8 +27,13 @@ const { props } = Astro.props;
     }
   </tbody>
 </table>
+</div>
 
 <style>
+  .jp-props-table__wrapper {
+    overflow-x: auto;
+  }
+
   .jp-props-table {
     width: 100%;
     border-collapse: collapse;

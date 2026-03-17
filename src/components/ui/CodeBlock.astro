@@ -17,6 +17,7 @@ const { code, label, accent = false } = Astro.props;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     padding: 1.5rem;
+    overflow: hidden;
   }
 
   .jp-code-block__label {
@@ -34,6 +35,13 @@ const { code, label, accent = false } = Astro.props;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: pre;
+  }
+
+  @media (max-width: 768px) {
+    .jp-code-block__pre {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
   }
 
   .jp-code-block__pre--accent {
